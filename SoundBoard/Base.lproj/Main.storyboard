@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a18-5j-VVA">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="QzK-B7-v5e">
+            <objects>
+                <navigationController id="a18-5j-VVA" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="D9N-xq-c9v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="W5B-br-hYC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4CY-Hx-196" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-972" y="-56"/>
+        </scene>
+        <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="SoundBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +36,99 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qGX-JQ-d8j">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qGX-JQ-d8j" secondAttribute="bottom" id="1W7-bb-LIX"/>
+                            <constraint firstItem="qGX-JQ-d8j" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="IVf-O4-uHE"/>
+                            <constraint firstItem="qGX-JQ-d8j" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="e0t-pc-9vW"/>
+                            <constraint firstAttribute="trailing" secondItem="qGX-JQ-d8j" secondAttribute="trailing" id="mGP-IM-HSg"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="FF3-rM-Oht">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="a3b-Ye-mau">
+                            <connections>
+                                <segue destination="OwS-YO-nGo" kind="show" id="AHU-nk-ezv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="theTableView" destination="qGX-JQ-d8j" id="eT6-HS-o56"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-71" y="-56"/>
+        </scene>
+        <!--SoundVC-->
+        <scene sceneID="tfw-9a-q13">
+            <objects>
+                <viewController id="OwS-YO-nGo" customClass="SoundVC" customModule="SoundBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tjn-iM-3qa"/>
+                        <viewControllerLayoutGuide type="bottom" id="37h-vj-WYd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QWE-vf-41E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyk-iX-85B">
+                                <rect key="frame" x="163" y="84" width="49" height="30"/>
+                                <state key="normal" title="Record"/>
+                                <connections>
+                                    <action selector="recordBtnPressed:" destination="OwS-YO-nGo" eventType="touchUpInside" id="ujd-ph-niS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MyI-WE-4jl">
+                                <rect key="frame" x="173" y="134" width="30" height="30"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playBtnPressed:" destination="OwS-YO-nGo" eventType="touchUpInside" id="tDJ-35-CzD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hzB-nm-Lhl">
+                                <rect key="frame" x="173" y="254" width="30" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addBtnPressed:" destination="OwS-YO-nGo" eventType="touchUpInside" id="x4w-MG-omz"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sound Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2tS-11-uEe">
+                                <rect key="frame" x="20" y="184" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MyI-WE-4jl" firstAttribute="top" secondItem="Hyk-iX-85B" secondAttribute="bottom" constant="20" id="A6M-sA-aA3"/>
+                            <constraint firstItem="2tS-11-uEe" firstAttribute="top" secondItem="MyI-WE-4jl" secondAttribute="bottom" constant="20" id="ARy-Sf-pZf"/>
+                            <constraint firstItem="hzB-nm-Lhl" firstAttribute="centerX" secondItem="QWE-vf-41E" secondAttribute="centerX" id="Blm-vf-c2B"/>
+                            <constraint firstItem="hzB-nm-Lhl" firstAttribute="top" secondItem="2tS-11-uEe" secondAttribute="bottom" constant="40" id="JsO-vc-Dh9"/>
+                            <constraint firstItem="Hyk-iX-85B" firstAttribute="centerX" secondItem="QWE-vf-41E" secondAttribute="centerX" id="PXZ-79-D9K"/>
+                            <constraint firstAttribute="trailing" secondItem="2tS-11-uEe" secondAttribute="trailing" constant="20" id="WEc-UL-cgK"/>
+                            <constraint firstItem="MyI-WE-4jl" firstAttribute="centerX" secondItem="QWE-vf-41E" secondAttribute="centerX" id="WJ8-wv-NXL"/>
+                            <constraint firstItem="Hyk-iX-85B" firstAttribute="top" secondItem="tjn-iM-3qa" secondAttribute="bottom" constant="20" id="dP4-0U-e6E"/>
+                            <constraint firstItem="2tS-11-uEe" firstAttribute="leading" secondItem="QWE-vf-41E" secondAttribute="leading" constant="20" id="jta-sG-Foh"/>
+                            <constraint firstItem="2tS-11-uEe" firstAttribute="centerX" secondItem="QWE-vf-41E" secondAttribute="centerX" id="tfH-Lf-jSP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addBtn" destination="hzB-nm-Lhl" id="U62-co-Qb6"/>
+                        <outlet property="playBtn" destination="MyI-WE-4jl" id="C4f-Qf-yK8"/>
+                        <outlet property="recordBtn" destination="Hyk-iX-85B" id="b9j-L0-j3b"/>
+                        <outlet property="textField" destination="2tS-11-uEe" id="b0A-Vi-8lT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jJO-YH-vle" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="716" y="-56"/>
         </scene>
     </scenes>
 </document>
